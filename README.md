@@ -4,7 +4,7 @@ https://github.com/3tomcha/soul-bound-tokyo-contract<br>
 ## App
 https://github.com/3tomcha/soul-bound-tokyo<br>
 ## Url
-Coming soon<br>
+https://soul-bound-tokyo-9lyfoag1v-3tomcha.vercel.app/
 
 ## Usage
 
