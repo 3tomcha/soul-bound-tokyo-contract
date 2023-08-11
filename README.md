@@ -1,10 +1,10 @@
 # Soul Bound Tokyo: "Fill the City with SBT!"
-Contracts
-https://github.com/3tomcha/soul-bound-tokyo-contract
-App
-https://github.com/3tomcha/soul-bound-tokyo
-Url 
-Coming soon
+## Contracts
+https://github.com/3tomcha/soul-bound-tokyo-contract<br>
+## App
+https://github.com/3tomcha/soul-bound-tokyo<br>
+## Url
+Coming soon<br>
 
 ## Documentation
 
