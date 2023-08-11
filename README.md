@@ -6,10 +6,6 @@ https://github.com/3tomcha/soul-bound-tokyo<br>
 ## Url
 Coming soon<br>
 
-## Documentation
-
-https://book.getfoundry.sh/
-
 ## Usage
 
 ### Build
