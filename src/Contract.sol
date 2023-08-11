@@ -5,6 +5,13 @@ import {ByteHasher} from "./helpers/ByteHasher.sol";
 import {IWorldID} from "./interfaces/IWorldID.sol";
 
 contract Contract {
+    event VerifiedAndExecuted(
+        address indexed signal,
+        uint256 indexed root,
+        uint256 indexed nullifierHash,
+        uint256[8] proof
+    );
+
     using ByteHasher for bytes;
 
     ///////////////////////////////////////////////////////////////////////////////
@@ -40,6 +47,10 @@ contract Contract {
             .hashToField();
     }
 
+    function exists(uint256 nullifierHash) public view returns (bool) {
+        return nullifierHashes[nullifierHash];
+    }
+
     /// @param signal An arbitrary input from the user, usually the user's wallet address (check README for further details)
     /// @param root The root of the Merkle tree (returned by the JS widget).
     /// @param nullifierHash The nullifier hash for this proof, preventing double signaling (returned by the JS widget).
@@ -52,7 +63,7 @@ contract Contract {
         uint256[8] calldata proof
     ) public {
         // First, we make sure this person hasn't done this before
-        if (nullifierHashes[nullifierHash]) revert InvalidNullifier();
+        // if (nullifierHashes[nullifierHash]) revert InvalidNullifier();
 
         // We now verify the provided proof is valid and the user is verified by World ID
         worldId.verifyProof(
@@ -64,10 +75,9 @@ contract Contract {
             proof
         );
 
-        // We now record the user has done this, so they can't do it again (proof of uniqueness)
-        nullifierHashes[nullifierHash] = true;
+        emit VerifiedAndExecuted(signal, root, nullifierHash, proof);
 
-        // Finally, execute your logic here, for example issue a token, NFT, etc...
-        // Make sure to emit some kind of event afterwards!
+        // We now record the user has done this, so they can't do it again (proof of uniqueness)
+        // nullifierHashes[nullifierHash] = true;
     }
 }
