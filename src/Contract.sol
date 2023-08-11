@@ -78,6 +78,6 @@ contract Contract {
         emit VerifiedAndExecuted(signal, root, nullifierHash, proof);
 
         // We now record the user has done this, so they can't do it again (proof of uniqueness)
-        // nullifierHashes[nullifierHash] = true;
+        nullifierHashes[nullifierHash] = true;
     }
 }
